@@ -28,8 +28,31 @@ const Application = () => {
           Add new Message
         </button>
       </div>
+      <SomeotherComponent />
     </>
   );
 };
 
 export default Application;
+
+const SomeotherComponent = () => {
+  const { addMessage, removeMessage, messages } = useMessageQueue()
+  
+  return (
+    <>
+      <button
+          onClick={() => {
+            if (messages.length % 3 === 0) {
+              addMessage("yoyoyoyoyoyoyo");
+            } else if (messages.length % 3 === 1) {
+              addMessage("hohohohohohohoho", "error");
+            } else {
+              addMessage("mateys", "success");
+            }
+          }}
+        >
+          Add other Message
+        </button>
+      </>
+  )
+}
